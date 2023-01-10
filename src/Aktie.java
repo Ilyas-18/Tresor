@@ -6,7 +6,7 @@ public class Aktie extends Gegenstand{
         // Nennwert der Aktie
         private int nennwert;
 
-        public Aktie(int id, int wert, String unternehmen, int nennwert) {
+        public Aktie(int id, double wert, String unternehmen, int nennwert) {
             // Aufruf des Konstruktors der Elternklasse (Gegenstand)
             super(id, wert);
             // Setzen des Unternehmens und des Nennwerts

@@ -17,32 +17,32 @@ public class Tresor {
     }
 
     // Entfernen eines Gegenstands aus dem Tresor
-    public void removeGegenstand(Gegenstand gegenstand) throws GegenstandNichtGefundenException {
-        if (!gegenstaende.remove(gegenstand)) {
+    public void removeGegenstand(Gegenstand g) throws GegenstandNichtGefundenException {
+        if (!gegenstaende.remove(g)) {
             // Wenn der Gegenstand nicht in der Liste vorhanden ist, wird die Exception geworfen
-            throw new GegenstandNichtGefundenException("Der Gegenstand mit der ID " + gegenstand.getId() + " wurde nicht gefunden.");
+            throw new GegenstandNichtGefundenException(g.getId());
         }
     }
 
     // Ermitteln eines Gegenstands im Tresor anhand seiner ID
     public Gegenstand getGegenstand(int id) throws GegenstandNichtGefundenException {
         // Suchen des Gegenstands in der Liste
-        for (Gegenstand gegenstand : gegenstaende) {
-            if (gegenstand.getId() == id) {
+        for (Gegenstand g : gegenstaende) {
+            if (g.getId() == id) {
                 // Gegenstand wurde gefunden und wird zurückgegeben
-                return gegenstand;
+                return g;
             }
         }
 
         // Wenn der Gegenstand nicht gefunden wurde, wird die Exception geworfen
-        throw new GegenstandNichtGefundenException("Der Gegenstand mit der ID " + id + " wurde nicht gefunden.");
+        throw new GegenstandNichtGefundenException(id);
     }
 
     // Berechnen des Gesamtwertes aller Gegenstände im Tresor
-    public int getGesamtWert() {
-        int gesamtWert = 0;
-        for (Gegenstand gegenstand : gegenstaende) {
-            gesamtWert += gegenstand.getWert();
+    public double getGesamtWert() {
+        double gesamtWert = 0;
+        for (Gegenstand g : gegenstaende) {
+            gesamtWert += g.getWert();
         }
         return gesamtWert;
     }
@@ -50,8 +50,11 @@ public class Tresor {
     // Nutzen von toString(), um Informationen über den Tresor und seine Gegenstände zu liefern
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Tresorinhalt:\n");
-        for (Gegenstand gegenstand : gegenstaende)
+        String text;
+        text = "\n\nTRESOR-INHALT:";
+        for (Gegenstand g : gegenstaende) {
+            text += g.toString();
+        }
+        return text;
     }
 }

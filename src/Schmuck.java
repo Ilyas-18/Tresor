@@ -3,7 +3,7 @@ public class Schmuck extends Gegenstand {
         // Bezeichnung des Schmucks
         private String bezeichnung;
 
-        public Schmuck(int id, int wert, String bezeichnung) {
+        public Schmuck(int id, double wert, String bezeichnung) {
             // Aufruf des Konstruktors der Elternklasse (Gegenstand)
             super(id, wert);
             // Setzen der Bezeichnung

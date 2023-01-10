@@ -4,9 +4,9 @@ public abstract class Gegenstand {
         private int id;
 
         // Wert des Gegenstands
-        private int wert;
+        private double wert;
 
-        public Gegenstand(int id, int wert) {
+        public Gegenstand(int id, double wert) {
             // Setzen der ID und des Werts beim Erstellen des Gegenstands
             this.id = id;
             this.wert = wert;
@@ -18,7 +18,7 @@ public abstract class Gegenstand {
         }
 
         // Getter-Methode für den Wert
-        public int getWert() {
+        public double getWert() {
             return wert;
         }
 
